@@ -1,28 +1,20 @@
-# unplugin-starter
+# unplugin-pixi-assets
 
-[![NPM version](https://img.shields.io/npm/v/unplugin-starter?color=a1b858&label=)](https://www.npmjs.com/package/unplugin-starter)
+[![NPM version](https://img.shields.io/npm/v/unplugin-pixi-assets?color=a1b858&label=)](https://www.npmjs.com/package/unplugin-pixi-assets)
 
-Starter template for [unplugin](https://github.com/unjs/unplugin).
+Load your pixi.js assets with imports.
 
-## Template Usage
+```ts
+import { Sprite } from 'pixi.js'
+import texture from './bunny.png?texture'
 
-To use this template, clone it down using:
-
-```bash
-npx degit unplugin/unplugin-starter my-unplugin
+const sprite = new Sprite(texture)
 ```
-
-And do a global replacement of `unplugin-starter` with your plugin name.
-
-Then you can start developing your unplugin 🔥
-
-To test your plugin, run: `pnpm run dev`
-To release a new version, run: `pnpm run release`
 
 ## Install
 
 ```bash
-npm i unplugin-starter
+npm i unplugin-pixi-assets
 ```
 
 <details>
@@ -30,11 +22,11 @@ npm i unplugin-starter
 
 ```ts
 // vite.config.ts
-import Starter from 'unplugin-starter/vite'
+import PixiAssets from 'unplugin-pixi-assets/vite'
 
 export default defineConfig({
   plugins: [
-    Starter({ /* options */ }),
+    PixiAssets({ /* options */ }),
   ],
 })
 ```
@@ -48,11 +40,11 @@ Example: [`playground/`](./playground/)
 
 ```ts
 // rollup.config.js
-import Starter from 'unplugin-starter/rollup'
+import PixiAssets from 'unplugin-pixi-assets/rollup'
 
 export default {
   plugins: [
-    Starter({ /* options */ }),
+    PixiAssets({ /* options */ }),
   ],
 }
 ```
@@ -68,7 +60,7 @@ export default {
 module.exports = {
   /* ... */
   plugins: [
-    require('unplugin-starter/webpack')({ /* options */ })
+    require('unplugin-pixi-assets/webpack')({ /* options */ })
   ]
 }
 ```
@@ -82,7 +74,7 @@ module.exports = {
 // nuxt.config.js
 export default defineNuxtConfig({
   modules: [
-    ['unplugin-starter/nuxt', { /* options */ }],
+    ['unplugin-pixi-assets/nuxt', { /* options */ }],
   ],
 })
 ```
@@ -99,7 +91,7 @@ export default defineNuxtConfig({
 module.exports = {
   configureWebpack: {
     plugins: [
-      require('unplugin-starter/webpack')({ /* options */ }),
+      require('unplugin-pixi-assets/webpack')({ /* options */ }),
     ],
   },
 }
@@ -113,11 +105,32 @@ module.exports = {
 ```ts
 // esbuild.config.js
 import { build } from 'esbuild'
-import Starter from 'unplugin-starter/esbuild'
+import PixiAssets from 'unplugin-pixi-assets/esbuild'
 
 build({
-  plugins: [Starter()],
+  plugins: [PixiAssets()],
 })
 ```
 
 <br></details>
+
+## Setup
+
+If you have an `env.d.ts` file, add the `unplugin-pixi-assets` types to it.
+
+```ts
+// env.d.ts
+/// <reference types="vite/client" />
+/// <reference types="unplugin-pixi-assets/client" />
+```
+
+If you don't have an env.d.ts file, you can create one and add the unplugin-pixi-assets types to it or you can add them to the types property in your tsconfig.json:
+
+```ts
+{
+  "compilerOptions": {
+    // ...
+    "types": ["unplugin-pixi-assets/client"]
+  }
+}
+```
