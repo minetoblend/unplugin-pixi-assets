@@ -6,8 +6,10 @@ export default defineConfig({
   plugins: [
     Inspect(),
     PixiAssets({
-      defaultTextureOptions: {
-        magFilter: 'linear',
+      textures: {
+        defaultOptions: {
+          magFilter: 'nearest',
+        },
       },
     }),
   ],

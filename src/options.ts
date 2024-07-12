@@ -11,7 +11,7 @@ function resolvePlugin(plugin: AssetPlugin | AssetPluginId, options: Options): A
   if (typeof plugin === 'string') {
     switch (plugin) {
       case 'textures':
-        return texturePlugin(options)
+        return texturePlugin(options.textures)
       default:
         throw new Error(`Unknown asset plugin: ${plugin}`)
     }

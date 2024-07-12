@@ -2,11 +2,13 @@ import type { TextureOptions, TextureSourceOptions } from 'pixi.js'
 import type { AssetPlugin } from './assetPlugin'
 
 export interface TexturePluginOptions {
-  defaultTextureOptions?: TextureSourceOptions
+  defaultOptions?: TextureSourceOptions
 }
 
-export function texturePlugin(options: TexturePluginOptions): AssetPlugin {
-  const defaultTextureOptions = options.defaultTextureOptions || {}
+export function texturePlugin(options: TexturePluginOptions = {}): AssetPlugin {
+  const {
+    defaultOptions = {},
+  } = options
 
   return {
     name: 'textures',
@@ -15,17 +17,11 @@ export function texturePlugin(options: TexturePluginOptions): AssetPlugin {
         return null
 
       const textureOptions = {
-        ...defaultTextureOptions,
+        ...defaultOptions,
       } as TextureSourceOptions
-
-      let alias: string | undefined
 
       for (const key in query as Record<keyof TextureOptions, string>) {
         switch (key) {
-          case alias:
-            alias = query[key]
-            break
-
           case 'alphaMode':
           case 'label':
           case 'scaleMode':
@@ -58,11 +54,11 @@ export function texturePlugin(options: TexturePluginOptions): AssetPlugin {
         }
       }
 
-      const assetOptions: string[] = []
-      if (alias)
-        assetOptions.push(`alias: ${JSON.stringify(alias)}`)
+      const extraLines: string[] = []
+      if (query.alias)
+        extraLines.push(`alias: ${JSON.stringify(query.alias)}`)
       if (Object.keys(textureOptions).length > 0)
-        assetOptions.push(`data: ${JSON.stringify(textureOptions)}`)
+        extraLines.push(`data: ${JSON.stringify(textureOptions)}`)
 
       return `
 import { Assets } from "pixi.js";
@@ -70,7 +66,7 @@ import textureUrl from ${JSON.stringify(path)};
 export default await Assets.load({
   src: textureUrl,
   loadParser: 'loadTextures',${
-    assetOptions.map(it => `  ${it}`).join(',\n')}
+    extraLines.map(it => `  ${it}`).join(',\n')}
 })`
     },
   }
