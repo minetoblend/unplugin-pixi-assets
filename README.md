@@ -126,7 +126,7 @@ If you have an `env.d.ts` file, add the `unplugin-pixi-assets` types to it.
 
 If you don't have an env.d.ts file, you can create one and add the unplugin-pixi-assets types to it or you can add them to the types property in your tsconfig.json:
 
-```ts
+```json
 {
   "compilerOptions": {
     // ...
