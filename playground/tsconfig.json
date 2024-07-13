@@ -1,0 +1,39 @@
+{
+  "compilerOptions": {
+    "composite": true,
+    "target": "es2017",
+    "lib": ["esnext", "DOM"],
+    "baseUrl": ".",
+    "module": "esnext",
+    "moduleResolution": "Bundler",
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ],
+      "unplugin-pixi-assets/runtime": [
+        "../src/runtime"
+      ],
+      "unplugin-pixi-assets/types": [
+        "../src/types"
+      ]
+    },
+    "resolveJsonModule": true,
+    "types": [
+      "../client.d.ts"
+    ],
+    "strict": true,
+    "strictNullChecks": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true
+  },
+  "include": [
+    "./src/**/*.ts",
+    "pixi-assets.d.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ],
+  "watchOptions": {
+    "force": "true"
+  }
+}
