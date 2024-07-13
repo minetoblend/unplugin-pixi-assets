@@ -2,11 +2,12 @@
 
 [![NPM version](https://img.shields.io/npm/v/unplugin-pixi-assets?color=a1b858&label=)](https://www.npmjs.com/package/unplugin-pixi-assets)
 
-Load your pixi.js assets with imports.
+Type safe Assets in pixi.js
 
 ```ts
 import { Sprite } from 'pixi.js'
-import texture from './bunny.png?texture'
+
+const texture = useAsset('textures/bunny.png')
 
 const sprite = new Sprite(texture)
 ```
