@@ -1,24 +1,25 @@
 {
-  "name": "unplugin-starter",
+  "name": "unplugin-pixi-assets",
   "type": "module",
   "version": "0.1.0",
   "packageManager": "pnpm@8.6.12",
   "description": "",
   "license": "MIT",
-  "homepage": "https://github.com/antfu/unplugin-starter#readme",
+  "homepage": "https://github.com/minetoblend/unplugin-pixi-assets#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/antfu/unplugin-starter.git"
+    "url": "git+https://github.com/minetoblend/unplugin-pixi-assets.git"
   },
   "bugs": {
-    "url": "https://github.com/antfu/unplugin-starter/issues"
+    "url": "https://github.com/minetoblend/unplugin-pixi-assets/issues"
   },
   "keywords": [
     "unplugin",
     "vite",
     "webpack",
     "rollup",
-    "transform"
+    "transform",
+    "pixi.js"
   ],
   "exports": {
     ".": {
