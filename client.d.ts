@@ -1,19 +1,15 @@
-declare module '*.jpg?texture' {
-  const texture: import('pixi.js').Texture
-  export default texture
+declare module 'unplugin-pixi-assets/runtime' {
+  import type { AssetNamedMap } from 'virtual:pixi-assets'
+
+  export interface TypesConfig {
+    AssetNamedMap: AssetNamedMap
+  }
 }
 
-declare module '*.jpeg?texture' {
-  const texture: import('pixi.js').Texture
-  export default texture
+declare global {
+  const useAsset: (typeof import('unplugin-pixi-assets/runtime'))['useAsset']
+
+  const loadAsset: (typeof import('unplugin-pixi-assets/runtime'))['loadAsset']
 }
 
-declare module '*.png?texture' {
-  const texture: import('pixi.js').Texture
-  export default texture
-}
-
-declare module '*&texture'{
-  const texture: import('pixi.js').Texture
-  export default texture
-}
+export {}

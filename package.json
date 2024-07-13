@@ -102,6 +102,7 @@
   "peerDependencies": {
     "@nuxt/kit": "^3",
     "@nuxt/schema": "^3",
+    "@pixi/sound": ">=6",
     "esbuild": "*",
     "pixi.js": ">=8",
     "rollup": "^3",
@@ -124,6 +125,9 @@
     "pixi.js": {
       "optional": true
     },
+    "@pixi/sound": {
+      "optional": true
+    },
     "@nuxt/kit": {
       "optional": true
     },
@@ -132,6 +136,11 @@
     }
   },
   "dependencies": {
+    "acorn": "^8.12.1",
+    "chokidar": "^3.6.0",
+    "estree-walker": "^3.0.3",
+    "local-pkg": "^0.5.0",
+    "magic-string": "^0.30.10",
     "unplugin": "^1.5.1"
   },
   "devDependencies": {
@@ -148,7 +157,7 @@
     "rimraf": "^5.0.5",
     "rollup": "^4.6.1",
     "tsup": "^8.0.1",
-    "typescript": "^5.3.2",
+    "typescript": "^5.5.3",
     "vite": "^5.0.4",
     "vitest": "^0.34.6",
     "webpack": "^5.89.0"

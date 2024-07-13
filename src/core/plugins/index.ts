@@ -1,4 +1,6 @@
 export type { AssetPlugin } from './assetPlugin'
-export { texturePlugin } from './texturePlugin'
 
-export type AssetPluginId = 'textures'
+export { texturePlugin } from './texturePlugin'
+export { soundPlugin } from './soundPlugin'
+
+export type AssetPluginId = 'textures' | 'sounds'

@@ -1,10 +1,17 @@
 {
+  "type": "module",
   "private": true,
   "scripts": {
     "dev": "nodemon -w '../src/**/*.ts' -e .ts -x vite"
   },
+  "dependencies": {
+    "@fontsource/nunito-sans": "^5.0.13",
+    "@pixi/sound": "^6.0.0",
+    "pixi.js": "^8.2.5"
+  },
   "devDependencies": {
     "vite": "^5.0.4",
-    "vite-plugin-inspect": "^0.8.1"
+    "vite-plugin-inspect": "^0.8.1",
+    "vite-plugin-top-level-await": "^1.4.1"
   }
 }
