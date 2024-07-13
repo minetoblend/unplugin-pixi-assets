@@ -4,13 +4,7 @@
 
 Type safe Assets in pixi.js
 
-```ts
-import { Sprite } from 'pixi.js'
-
-const texture = useAsset('textures/bunny.png')
-
-const sprite = new Sprite(texture)
-```
+<img width="483" alt="image" src="https://github.com/user-attachments/assets/a9bfd175-0765-4918-819a-242440bb9269">
 
 ## Install
 
