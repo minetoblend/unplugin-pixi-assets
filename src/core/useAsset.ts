@@ -71,7 +71,7 @@ function injectAssets(code: MagicString) {
     if (typeof assetId !== 'string')
       throw new Error('Asset id must be a string')
 
-    let importName = `__use_asset_${useStatements.length}__`
+    let importName = `__use_asset_${(useStatements.length + loadStatements.length)}__`
 
     if (type === 'useAsset') {
       let options: Record<string, any> | undefined
